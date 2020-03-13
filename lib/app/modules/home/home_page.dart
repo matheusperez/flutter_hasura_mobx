@@ -46,17 +46,22 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
           var list = controller.notesData.value;
           return Column(
             children: <Widget>[
-              TextFormField(
-                controller: textController,
-                decoration: InputDecoration(
-                  labelText: 'Digite sua anotação',
-                  suffix: IconButton(
-                    onPressed: _addNote,
-                    icon: Icon(
-                      Icons.add,
-                      color: Colors.white,
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: TextFormField(
+                  controller: textController,
+                  textInputAction: TextInputAction.done,
+                  onEditingComplete: () => _addNote(),
+                  decoration: InputDecoration(
+                    labelText: 'Digite sua anotação',
+                    suffix: IconButton(
+                      onPressed: _addNote,
+                      icon: Icon(
+                        Icons.check,
+                        color: Colors.white,
+                      ),
+                      color: Colors.red,
                     ),
-                    color: Colors.red,
                   ),
                 ),
               ),

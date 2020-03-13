@@ -15,7 +15,7 @@ abstract class _HomeControllerBase with Store {
   ObservableStream<List<NoteModel>> notesData;
 
   Future<bool> addNote(String text) async {
-    if (text == null) {
+    if (text == null || text.isEmpty) {
       return false;
     }
     BotToast.showLoading();
