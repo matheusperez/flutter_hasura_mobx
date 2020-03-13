@@ -8,11 +8,9 @@ class HomeRepository extends IRepository {
   Stream<List<NoteModel>> fetchData() {
     try {
       final data = hasuraConnect.subscription(listNotesSub);
-      return data.map((data) {
-        return (data['data']['notes'] as List)
-            .map((item) => NoteModel.fromJson(item))
-            .toList();
-      });
+      return data.map((data) => (data['data']['notes'] as List)
+          .map((item) => NoteModel.fromJson(item))
+          .toList());
     } on HasuraError catch (e) {
       print(e.message);
     }
