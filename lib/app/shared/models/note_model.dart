@@ -5,8 +5,6 @@ class NoteModel {
   NoteModel({this.descricao, this.id});
 
   NoteModel.fromJson(Map<String, dynamic> json) {
-    print('=== ENTREI AQUI! ');
-    print(json);
     descricao = json['descricao'];
     id = json['id'];
   }

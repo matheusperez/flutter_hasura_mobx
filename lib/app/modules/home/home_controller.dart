@@ -10,7 +10,7 @@ class HomeController = _HomeControllerBase with _$HomeController;
 
 abstract class _HomeControllerBase with Store {
   _HomeControllerBase(this._homeRepository) {
-    notesData = ObservableStream(_homeRepository.fetchData());
+    notesData = _homeRepository.fetchData().asObservable();
   }
   final HomeRepository _homeRepository;
   ObservableStream<List<NoteModel>> notesData;
